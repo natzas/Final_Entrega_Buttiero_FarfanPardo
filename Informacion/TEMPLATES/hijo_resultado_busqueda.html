@@ -1,0 +1,39 @@
+{% extends "padre.html" %}
+
+{%  load static %}
+
+
+{% block contenido %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    {% if archivo %}
+
+    <ul>
+    {% for publicacion in archivo %}
+        <li>Nombre: {{publicacion.nombre}}</li>
+        <li>Apellido: {{publicacion.apellido}}</li>
+        <li>Profesión: {{publicacion.profesion}}</li>
+        <li>Titulo: {{publicacion.titulo}}</li>
+        <li>Cuerpo: {{publicacion.cuerpo}}</li>
+        <li>Fecha: {{publicacion.fecha}}</li>
+        <li>Adjunto: {{publicacion.adjunto}}</li>
+        <li>Autor: {{publicacion.autor}}</li>
+    {% endfor %}
+    </ul>
+    {% else %}
+        <p>No se encontraron archivos</p>
+    {% endif %}
+
+</body>
+</html>
+{% endblock %}

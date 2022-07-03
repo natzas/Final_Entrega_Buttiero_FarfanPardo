@@ -1,0 +1,32 @@
+{% extends "padre.html" %}
+
+{%  load static %}
+
+
+{% block contenido %}
+    <form action="upload" method="POST">
+        {% csrf_token %}
+        <p>Nombre:</p>
+        <input type="text" name="nombre" required>
+        <p>Apellido:</p>
+        <input type="text" name="apellido" required>
+        <p>Profesión:</p>
+        <input type="text" name="profesion" required>
+        <p>Titulo Archivo:</p>
+        <input type="text" name="titulo" required>
+        <p>Cuerpo:</p>
+        <input type="text" name="cuerpo" required>
+        <p>Fecha:</p>
+        <input type="date" name="fecha">
+        <p>Adjunto:</p>
+        <input type="url" name="adjunto">
+        <p>Autor:</p>
+        <input type="text" name="autor">
+        <input type="submit" value="Enviar">
+
+
+    </form>
+
+
+{% endblock %}
+

@@ -1,0 +1,56 @@
+{% extends "padre.html" %}
+
+{%  load static %}
+
+
+{% block contenido %}
+
+  {% for elemento in publicacion %}
+    <section class="post-list">
+      <div class="content">
+        <article class="post">
+          <div class="post-body">
+            <span>{{elemento.fecha}}</span>
+            <h2>{{elemento.titulo}}</h2>
+            <p>{{elemento.nombre}}></p>
+            <p>{{elemento.apellido}}</p>
+            <p>{{elemento.profesion}}</p>
+            <p>{{elemento.cuerpo}}</p>
+            <p><a href="{{elemento.adjunto}}">Adjunto</a></p>
+            <footer>
+              Autor: {{elemento.autor}}
+            </footer>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <br>
+    <a href="{% url 'borrar' elemento.id %}">BORRAR</a>
+      
+    <br>
+    <a href="{% url 'editar' elemento.id %}">EDITAR</a>
+    
+
+
+  {% endfor  %}
+    <br>
+        <a href="{% url 'upload' %}">AGREGAR</a>
+
+
+
+    <form action="comentario" method="POST">
+      {% csrf_token %}
+        <p>Nombre:</p>
+        <input type="text" name="nombre" required>
+
+        <p>Email:</p>
+        <input type="email" name="email" required>
+
+        <p>Comentario:</p>
+        <input type="text" name="mensaje" required>
+ 
+        <input type="submit" value="Enviar">
+    </form>
+
+{% endblock %}

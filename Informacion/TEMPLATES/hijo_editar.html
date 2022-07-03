@@ -1,0 +1,31 @@
+{% extends "padre.html" %}
+
+{%  load static %}
+
+
+{% block contenido %}
+    <form action="{% url 'editar' publicacion.id %}" method="POST">
+        {% csrf_token %}
+        <p>Nombre:</p>
+        <input type="text" name="nombre" required>
+        <p>Apellido:</p>
+        <input type="text" name="apellido" required>
+        <p>Profesion:</p>
+        <input type="text" name="profesion" required>
+        <p>Titulo:</p>
+        <input type="text" name="titulo" required>
+        <p>Cuerpo:</p>
+        <input type="text" name="cuerpo" required>
+        <p>Fecha:</p>
+        <input type="date" name="fecha" required>
+        <p>Adjunto:</p>
+        <input type="url" name="adjunto" required>
+        <p>Autor:</p>
+        <input type="text" name="autor" required>
+        <input type="submit" value="Enviar">
+
+
+    </form>
+
+
+{% endblock %}
